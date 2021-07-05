@@ -1,5 +1,7 @@
+import { Button, TextField } from "@material-ui/core";
 import React, {useState} from "react";
 import {v4 as uuid} from 'uuid' //default import doesnt exist, have to specify specific version
+
 
 function TodoForm( {addTodo} ) {
   const [todo, setTodo] = useState({ // define a state called todo, initialize it as an object with three properties - setTodo sets that state
@@ -22,14 +24,15 @@ function TodoForm( {addTodo} ) {
   } // spread syntax can be used with objects, presumably to edit them
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <form className="todo-form" onSubmit={handleSubmit}>
+      <TextField
+        label = "Task"
         name = "task"
         type = "text"
         value = {todo.task}
         onChange = {handleTaskInputChange}
       />
-      <button type="submit">submit</button>
+      <Button type="submit">submit</Button>
     </form>
   );
 
